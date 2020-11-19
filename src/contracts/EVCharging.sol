@@ -47,5 +47,11 @@ contract EVWallet{
         //name1 = balance_record[msg.sender].customerName;
         return balance_record[msg.sender].custAccount;
     }
+
+    function logTransaction(address to_a,uint _value) public returns(bool){
+        balance_record[msg.sender].totalBalance = balance_record[msg.sender].totalBalance - _value;
+        balance_record[to_a].totalBalance = balance_record[to_a].totalBalance + _value;
+        return true;
+    }
         
 }
